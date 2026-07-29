@@ -1,0 +1,71 @@
+export const INITIAL_GALERIA = [
+  {
+    id: 'gal-001',
+    url: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    titulo: 'Arena Principal',
+    ordem: 1,
+    ativo: true,
+  },
+  {
+    id: 'gal-002',
+    url: 'https://images.unsplash.com/photo-1574329561519-e6a78c7c9f0f?w=800&q=80',
+    titulo: 'Campo de Batalha',
+    ordem: 2,
+    ativo: true,
+  },
+  {
+    id: 'gal-003',
+    url: 'https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=800&q=80',
+    titulo: 'Área Verde',
+    ordem: 3,
+    ativo: true,
+  },
+  {
+    id: 'gal-004',
+    url: 'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&q=80',
+    titulo: 'Equipamentos',
+    ordem: 4,
+    ativo: true,
+  },
+  {
+    id: 'gal-005',
+    url: 'https://images.unsplash.com/photo-1609358905581-e5381612486e?w=800&q=80',
+    titulo: 'Recepção',
+    ordem: 5,
+    ativo: true,
+  },
+  {
+    id: 'gal-006',
+    url: 'https://images.unsplash.com/photo-1587491439149-bd2ff295d450?w=800&q=80',
+    titulo: 'Área de Descanso',
+    ordem: 6,
+    ativo: true,
+  },
+];
+
+export const INITIAL_BANNERS = [
+  {
+    id: 'ban-001',
+    titulo: 'Headshot Paintball Viçosa',
+    subtitulo: 'A melhor experiência de paintball de Viçosa-MG',
+    imagem: null,
+    cor: '#e85c0d',
+    ctaTexto: 'Agendar Agora',
+    ctaLink: '/agendamento',
+    principal: true,
+    ativo: true,
+    ordem: 1,
+  },
+  {
+    id: 'ban-002',
+    titulo: 'Promoção de Férias',
+    subtitulo: '400 bolinhas por apenas R$ 85,00 — Válido em julho!',
+    imagem: null,
+    cor: '#ec4899',
+    ctaTexto: 'Ver Promoção',
+    ctaLink: '/agendamento',
+    principal: false,
+    ativo: true,
+    ordem: 2,
+  },
+];
