@@ -129,30 +129,35 @@ export default function Agendamento() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
           {/* Header */}
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e85c0d]/10 border border-[#e85c0d]/30 rounded-full mb-4">
-              <FiCalendar size={14} className="text-[#e85c0d]" />
-              <span className="text-sm text-[#e85c0d] font-semibold tracking-wider">AGENDAMENTO</span>
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#e85c0d]/10 border border-[#e85c0d]/30 rounded-full mb-3">
+              <FiCalendar size={13} className="text-[#e85c0d]" />
+              <span className="text-xs text-[#e85c0d] font-semibold tracking-wider">AGENDAMENTO</span>
             </div>
-            <h1 className="font-display text-5xl text-white tracking-wider">RESERVE SUA <span className="text-gradient">VAGA</span></h1>
+            <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: 'clamp(2rem, 8vw, 3.5rem)', color: 'white', letterSpacing: '0.05em', lineHeight: 1 }}>
+              RESERVE SUA <span className="text-gradient">VAGA</span>
+            </h1>
           </div>
 
           {/* Step Indicator */}
-          <div className="flex items-center justify-center mb-10 overflow-x-auto pb-2">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', overflowX: 'auto', padding: '4px 0' }}>
             {STEPS.map((s, i) => (
-              <div key={s.id} className="flex items-center">
-                <div className={`flex flex-col items-center ${step >= s.id ? 'opacity-100' : 'opacity-40'}`}>
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all
-                      ${step > s.id ? 'bg-[#e85c0d] border-[#e85c0d]' : step === s.id ? 'border-[#e85c0d] bg-[#e85c0d]/10' : 'border-[#2a2a2a]'}
-                    `}
-                  >
-                    {step > s.id ? <FiCheck size={16} className="text-white" /> : <s.icon size={16} className={step === s.id ? 'text-[#e85c0d]' : 'text-[#64748b]'} />}
+              <div key={s.id} style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', opacity: step >= s.id ? 1 : 0.35 }}>
+                  <div style={{
+                    width: '36px', height: '36px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    border: `2px solid ${step > s.id ? '#e85c0d' : step === s.id ? '#e85c0d' : '#2a2a2a'}`,
+                    background: step > s.id ? '#e85c0d' : step === s.id ? 'rgba(232,92,13,0.1)' : 'transparent',
+                    flexShrink: 0,
+                  }}>
+                    {step > s.id
+                      ? <FiCheck size={15} style={{ color: 'white' }} />
+                      : <s.icon size={15} style={{ color: step === s.id ? '#e85c0d' : '#64748b' }} />
+                    }
                   </div>
-                  <span className={`text-xs mt-1 font-semibold hidden sm:block ${step === s.id ? 'text-[#e85c0d]' : 'text-[#64748b]'}`}>{s.label}</span>
                 </div>
                 {i < STEPS.length - 1 && (
-                  <div className={`w-8 sm:w-16 h-0.5 mx-1 transition-all ${step > s.id ? 'bg-[#e85c0d]' : 'bg-[#2a2a2a]'}`} />
+                  <div style={{ width: '20px', height: '2px', margin: '0 4px', flexShrink: 0, background: step > s.id ? '#e85c0d' : '#2a2a2a' }} />
                 )}
               </div>
             ))}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { FiLock, FiUser, FiTarget, FiEye, FiEyeOff } from 'react-icons/fi';
@@ -12,10 +12,12 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  if (isAuthenticated) {
-    navigate('/admin');
-    return null;
-  }
+  // Redirecionar se já estiver logado (em useEffect para evitar bug no React)
+  useEffect(() => {
+    if (isAuthenticated) navigate('/admin', { replace: true });
+  }, [isAuthenticated, navigate]);
+
+  if (isAuthenticated) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
