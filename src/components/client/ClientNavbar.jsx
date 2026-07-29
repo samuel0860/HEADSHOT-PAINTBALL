@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiCalendar, FiTarget } from 'react-icons/fi';
+import { FiMenu, FiX, FiCalendar, FiTarget, FiShield } from 'react-icons/fi';
 
 const navLinks = [
   { to: '/', label: 'Início' },
@@ -141,7 +141,20 @@ export function ClientNavbar() {
               <FiCalendar size={20} /> Agendar Agora
             </Link>
 
-            <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.2)', fontSize: '12px', marginTop: '16px' }}>
+            {/* Link Admin — sutil, no final */}
+            <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '16px', paddingTop: '16px' }}>
+              <Link to="/admin/login" style={{
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                padding: '12px', borderRadius: '12px', fontSize: '13px', fontWeight: 600,
+                color: 'rgba(255,255,255,0.3)', textDecoration: 'none',
+                border: '1px solid rgba(255,255,255,0.06)',
+                background: 'rgba(255,255,255,0.02)',
+              }}>
+                <FiShield size={14} /> Acesso Administrativo
+              </Link>
+            </div>
+
+            <p style={{ textAlign: 'center', color: 'rgba(255,255,255,0.2)', fontSize: '12px', marginTop: '12px' }}>
               @paintballvicosa · Viçosa · MG
             </p>
           </nav>
