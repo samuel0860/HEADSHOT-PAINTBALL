@@ -38,7 +38,7 @@ import AdminClientes from './pages/Admin/Clientes';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/HEADSHOT-PAINTBALL">
       <AuthProvider>
         <GaleriaProvider>
           <PacotesProvider>
