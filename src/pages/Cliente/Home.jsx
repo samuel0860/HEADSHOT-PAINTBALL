@@ -26,8 +26,37 @@ function HeroBanner({ banners }) {
 
   return (
     <section style={{ position: 'relative', width: '100%', minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', background: '#080808' }}>
-      {b?.imagem && <img src={b.imagem} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />}
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #080808 0%, rgba(8,8,8,0.8) 50%, rgba(8,8,8,0.9) 100%)' }} />
+      
+      {/* Vídeo de fundo */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          opacity: b?.imagem ? 0 : 0.6, // Se tiver banner, esconde o vídeo
+          transition: 'opacity 0.5s ease'
+        }}
+      >
+        <source src="/HEADSHOT-PAINTBALL/video-anuncio.mp4" type="video/mp4" />
+      </video>
+
+      {/* Imagem do banner por cima do vídeo (se houver) */}
+      {b?.imagem && (
+        <img 
+          src={b.imagem} 
+          alt="" 
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} 
+        />
+      )}
+      
+      {/* Overlay gradiente para escurecer */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, #080808 0%, rgba(8,8,8,0.7) 60%, rgba(8,8,8,0.85) 100%)' }} />
 
       <div style={{ position: 'relative', zIndex: 10, width: '100%', maxWidth: '800px', margin: '0 auto', padding: '5rem 1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '999px', marginBottom: '24px' }}>

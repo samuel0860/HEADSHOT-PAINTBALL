@@ -48,7 +48,7 @@ export const INITIAL_BANNERS = [
     id: 'ban-001',
     titulo: 'Headshot Paintball Viçosa',
     subtitulo: 'A melhor experiência de paintball de Viçosa-MG',
-    imagem: '/HEADSHOT-PAINTBALL/banner1.png',
+    imagem: null, // Deixamos nulo para tocar o vídeo no fundo
     cor: '#e85c0d',
     ctaTexto: 'Agendar Agora',
     ctaLink: '/agendamento',
